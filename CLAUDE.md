@@ -46,6 +46,5 @@ python3 -m http.server 8000
 ```
 
 ## Open to-dos
-- Add my real LinkedIn URL. The contact "LinkedIn" link is currently `href="#"`.
 - Fill the `[X]` placeholders on the Insurance Discovery Agent page.
 - Give the Notes Agent its own case study once it has results.
