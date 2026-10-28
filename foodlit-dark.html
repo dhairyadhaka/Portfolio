@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodLit — Cook More, Order Less — Dhairya Dhaka</title>
+<meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0E0E10}
+html{scroll-behavior:smooth}
+a{color:inherit}
+.m-link{text-decoration:none;color:#8E8E96;transition:color .15s ease}
+.m-link:hover{color:#EDEDEF}
+.m-btn{transition:transform .2s ease}
+.m-btn:hover{transform:translateY(-1px)}
+.m-btn svg,.m-next svg{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.m-btn:hover svg{transform:translateX(-3px)}
+.m-next:hover svg{transform:translateX(4px)}
+.m-next .m-title{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.m-next:hover .m-title{transform:translateX(6px)}
+.h-up{animation:hUp .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--d,0s)}
+@keyframes hUp{from{opacity:0;translate:0 18px}}
+.ph-in{animation:phIn 1.1s cubic-bezier(.2,.8,.2,1) backwards .3s}
+@keyframes phIn{from{clip-path:inset(100% 0 0 0 round 18px);scale:1.06}to{clip-path:inset(0 0 0 0 round 18px);scale:1}}
+.m-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#EDEDEF;transform:scaleX(0);transform-origin:0 50%}
+.m-sec{position:relative}
+.m-sec::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:160px;background:#EDEDEF;transform:scaleX(0);transform-origin:left}
+@supports (animation-timeline: scroll()){
+.m-progress{animation:mProg linear both;animation-timeline:scroll(root)}
+@keyframes mProg{to{transform:scaleX(1)}}
+}
+@supports (animation-timeline: view()){
+.m-in{animation:mIn linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+@keyframes mIn{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+.m-sec::before{animation:mRule linear both;animation-timeline:view();animation-range:entry 10% cover 30%}
+@keyframes mRule{to{transform:scaleX(1)}}
+.m-st{animation:mIn linear both;animation-timeline:view();animation-range:entry calc(var(--i,0) * 5%) cover calc(18% + var(--i,0) * 5%)}
+}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #EDEDEF; background: #0E0E10; min-height: 100vh">
+
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(14,14,16,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #222226">
+<nav style="max-width: 960px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<a class="m-btn" href="dark.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All work</a>
+<a href="dark.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px"><span aria-hidden="true" style="width: 14px; height: 14px; background: #FFE58A; border: 1px solid #EDEDEF; rotate: -6deg"></span>Dhairya Dhaka</a>
+</nav>
+<div class="m-progress" aria-hidden="true"></div>
+</header>
+
+<main style="max-width: 960px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 88px 0 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span class="h-up" style="--d: .05s; font-size: 14px; color: #8E8E96">Side project · solo builder · Live</span>
+<h1 class="h-up" style="--d: .15s; margin: 0; font-size: clamp(38px, 5.4vw, 58px); font-weight: 500; line-height: 1.05; letter-spacing: -0.035em">FoodLit — Cook More, Order Less</h1>
+<p class="h-up" style="--d: .3s; margin: 0; font-size: 19px; line-height: 1.6; color: #B4B4BA; max-width: 620px">A personal app I built to stop defaulting to food delivery: snap or search a dish, get the recipe, and buy the missing ingredients at the cheapest price across Zepto, Blinkit and Instamart.</p>
+</div>
+<img class="ph-in" src="assets/fl-01.jpg" alt="FoodLit home screen with the Snap a dish button and savings counter" style="flex: 0 0 auto; width: 220px; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 22px; border: 1px solid #222226">
+</section>
+
+<dl class="h-up" style="--d: .45s; margin: 0 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; padding: 22px 0; border-top: 1px solid #222226; border-bottom: 1px solid #222226"><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Role</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Product owner, designer and builder</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Stack</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Installable web app, vanilla JS, Claude vision</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">North star</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Meals cooked instead of ordered</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Period</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">12 Aug – 10 Oct 2026</dd></div></dl>
+
+<div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #16161A; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: #8E8E96">TL;DR</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, rgba(255,214,90,0.22) 62%)">The goal was behavioural, not technical: cook more at home, order less. In two months the app logged 61 meals I would otherwise have ordered — and kept ₹10,469 away from delivery apps.</span></p>
+</div>
+
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Problem</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Ordering in is the path of least resistance</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">A delivered paneer butter masala costs about ₹349 for two. Cooking it at home uses roughly ₹160 of ingredients. Five or six times a week, that gap becomes thousands of rupees a month — and restaurant versions use far more butter, cream and oil.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">I still kept ordering, because the friction sat in the wrong place:</p>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Deciding what to cook</strong> — I’d see a dish but not know its name or recipe.</li><li style="padding-left: 4px"><strong>Knowing what to buy</strong> — checking the kitchen and listing what’s missing takes effort.</li><li style="padding-left: 4px"><strong>Buying it cheaply</strong> — the same basket costs different amounts on each app.</li><li style="padding-left: 4px"><strong>No feedback loop</strong> — nothing showed what cooking was actually saving.</li></ol>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Product</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Discover, decide, track</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px"><figure class="m-st" style="--i: 0; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-01.jpg" alt="Snap or search — One button opens the camera; the savings counter sits on the home screen as a daily nudge." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">Snap or search</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">One button opens the camera; the savings counter sits on the home screen as a daily nudge.</span></figcaption></figure><figure class="m-st" style="--i: 1; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-02.jpg" alt="Money first — Every recipe opens with what it costs to cook versus what it costs to order." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">Money first</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Every recipe opens with what it costs to cook versus what it costs to order.</span></figcaption></figure><figure class="m-st" style="--i: 2; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-03.jpg" alt="A running score — Every logged meal adds to the total kept from delivery." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">A running score</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Every logged meal adds to the total kept from delivery.</span></figcaption></figure></div>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px">33 curated dishes across 6 cuisines, each with quantities, steps and a video</li><li style="padding-left: 4px">Serving scaling from 1 to 8 people — quantities, calories and costs all rescale</li><li style="padding-left: 4px">A pantry that remembers what I own, so it’s never re-bought</li><li style="padding-left: 4px">Full-basket price comparison across Zepto, Blinkit and Instamart</li><li style="padding-left: 4px">Calories per serving on every dish</li></ul>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">How it works</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">The core loop</h2>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/fl-04.png" alt="FoodLit core loop: snap or search, recipe, basket, compare, hand off, cook, log the meal, savings total" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Every cooked meal feeds the next one.</figcaption></figure>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px"><figure class="m-st" style="--i: 0; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-05.jpg" alt="1. Snap — A photo goes to Claude vision, which returns its top three guesses." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">1. Snap</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">A photo goes to Claude vision, which returns its top three guesses.</span></figcaption></figure><figure class="m-st" style="--i: 1; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-06.jpg" alt="2. Pick — Each guess is matched to a curated recipe; search is always a fallback." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">2. Pick</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Each guess is matched to a curated recipe; search is always a fallback.</span></figcaption></figure><figure class="m-st" style="--i: 2; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-07.jpg" alt="3. Basket — Ingredients map to real products; pantry items start unticked." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">3. Basket</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Ingredients map to real products; pantry items start unticked.</span></figcaption></figure><figure class="m-st" style="--i: 3; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-08.jpg" alt="4. Compare — The full basket is priced on each app; missing items lose the “cheapest” crown." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">4. Compare</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">The full basket is priced on each app; missing items lose the “cheapest” crown.</span></figcaption></figure></div>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Results</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Two months of cooking at home</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">61</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">meals cooked instead of ordered</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">₹10,469</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">kept from delivery (58% less spent)</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">₹172</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">average saved per meal</span></div></div>
+<div style="overflow-x: auto"><table style="width: 100%; border-collapse: collapse"><thead><tr><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">Metric</th><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">12 Aug – 10 Oct 2026</th></tr></thead><tbody><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Meals cooked instead of ordered</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">61</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Spent on ingredients</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">₹7,610</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Same meals, delivered</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">₹18,079</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Kept from delivery</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">₹10,469 (58% less spent)</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Average saved per meal</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">₹172</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Average calories per serving</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">369 kcal</td></tr></tbody></table></div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/fl-09.png" alt="FoodLit meal log chart, 12 Aug to 10 Oct 2026, 61 meals" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Meal log · 12 Aug – 10 Oct 2026</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/fl-10.png" alt="Home-cooked meals per week over nine weeks" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">From 4 home-cooked meals a week to 11 by week eight.</figcaption></figure>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">The habit is the real result. At this pace, cooking at home keeps about ₹63,000 a year out of delivery apps — and every meal had a known calorie count, averaging 369 kcal per serving.</p>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Design</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Built to feel like a food magazine</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px"><figure class="m-st" style="--i: 0; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-13.jpg" alt="Browse — Photo-backed cuisine tiles and meal-time filters narrow 33 dishes in two taps." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">Browse</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Photo-backed cuisine tiles and meal-time filters narrow 33 dishes in two taps.</span></figcaption></figure><figure class="m-st" style="--i: 1; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-14.jpg" alt="Cook vs order — Changing servings rescales quantities, calories and both prices live." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">Cook vs order</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Changing servings rescales quantities, calories and both prices live.</span></figcaption></figure><figure class="m-st" style="--i: 2; margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="assets/fl-15.jpg" alt="Pantry — Owned staples are never re-bought; they start unticked in every basket." loading="lazy" style="display: block; width: 100%; aspect-ratio: 780 / 1688; object-fit: cover; border-radius: 18px; border: 1px solid #222226"><figcaption style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 500">Pantry</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">Owned staples are never re-bought; they start unticked in every basket.</span></figcaption></figure></div>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Hand off instead of checking out</strong> — no app offers a public ordering API, so each item opens pre-searched in the cheapest app.</li><li style="padding-left: 4px"><strong>A price snapshot, not scraping</strong> — prices are refreshed by hand with a “last checked” date.</li><li style="padding-left: 4px"><strong>Show the money first</strong> — the cook-vs-order comparison sits above the ingredients.</li><li style="padding-left: 4px"><strong>Local-first data</strong> — meals and pantry live on the device, with export and import for backup.</li></ul>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Roadmap</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Next: let the app do the shopping</h2>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/fl-11.png" alt="FoodLit roadmap in four phases" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Each phase removes another step I still do by hand.</figcaption></figure>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Now — AI photo recognition:</strong> move the vision call behind a small server and generate recipes for any dish.</li><li style="padding-left: 4px"><strong>Next — Quick-commerce integrations:</strong> live prices and stock, a pre-filled cart, one-tap checkout.</li><li style="padding-left: 4px"><strong>Later — MCP server and voice agent:</strong> “what’s for dinner?” answered from my pantry, with staples restocked from the cheapest app — money only moves after I say yes.</li></ul>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/fl-12.png" alt="Proposed architecture for the voice agent phase" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">The agent never holds payment details; it reads the total back for a spoken yes before checkout.</figcaption></figure>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Learning</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">What I learned</h2>
+<blockquote style="margin: 8px 0 0; padding: 4px 0 4px 22px; border-left: 2px solid #EDEDEF; font-size: 21px; line-height: 1.5; font-weight: 500; letter-spacing: -0.01em; color: #EDEDEF">The running savings total did more for the habit than any recipe feature. Making the benefit visible after every meal turned “I should cook more” into something I could see working.</blockquote>
+</div>
+</section>
+
+<a class="m-next" href="claim-status-agent-dark.html" style="text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 40px 0 88px; border-top: 1px solid #EDEDEF">
+<span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #8E8E96">Next case study</span><span class="m-title" style="font-size: clamp(24px, 3.4vw, 34px); font-weight: 500; letter-spacing: -0.02em">Claim Status Agent</span></span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</main>
+
+<footer style="border-top: 1px solid #222226">
+<div style="max-width: 960px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: #6E6E76">
+<span>© 2026 Dhairya Dhaka</span>
+<a class="m-link" href="mailto:dhairyadhaka11@gmail.com">dhairyadhaka11@gmail.com</a>
+</div>
+</footer>
+</div>
+</body>
+</html>

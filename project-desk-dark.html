@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Desk — a PM operating system — Dhairya Dhaka</title>
+<meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0E0E10}
+html{scroll-behavior:smooth}
+a{color:inherit}
+.m-link{text-decoration:none;color:#8E8E96;transition:color .15s ease}
+.m-link:hover{color:#EDEDEF}
+.m-btn{transition:transform .2s ease}
+.m-btn:hover{transform:translateY(-1px)}
+.m-btn svg,.m-next svg{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.m-btn:hover svg{transform:translateX(-3px)}
+.m-next:hover svg{transform:translateX(4px)}
+.m-next .m-title{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.m-next:hover .m-title{transform:translateX(6px)}
+.h-up{animation:hUp .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--d,0s)}
+@keyframes hUp{from{opacity:0;translate:0 18px}}
+.ph-in{animation:phIn 1.1s cubic-bezier(.2,.8,.2,1) backwards .3s}
+@keyframes phIn{from{clip-path:inset(100% 0 0 0 round 18px);scale:1.06}to{clip-path:inset(0 0 0 0 round 18px);scale:1}}
+.m-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#EDEDEF;transform:scaleX(0);transform-origin:0 50%}
+.m-sec{position:relative}
+.m-sec::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:160px;background:#EDEDEF;transform:scaleX(0);transform-origin:left}
+@supports (animation-timeline: scroll()){
+.m-progress{animation:mProg linear both;animation-timeline:scroll(root)}
+@keyframes mProg{to{transform:scaleX(1)}}
+}
+@supports (animation-timeline: view()){
+.m-in{animation:mIn linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+@keyframes mIn{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+.m-sec::before{animation:mRule linear both;animation-timeline:view();animation-range:entry 10% cover 30%}
+@keyframes mRule{to{transform:scaleX(1)}}
+.m-st{animation:mIn linear both;animation-timeline:view();animation-range:entry calc(var(--i,0) * 5%) cover calc(18% + var(--i,0) * 5%)}
+}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #EDEDEF; background: #0E0E10; min-height: 100vh">
+
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(14,14,16,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #222226">
+<nav style="max-width: 960px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<a class="m-btn" href="dark.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All work</a>
+<a href="dark.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px"><span aria-hidden="true" style="width: 14px; height: 14px; background: #FFE58A; border: 1px solid #EDEDEF; rotate: -6deg"></span>Dhairya Dhaka</a>
+</nav>
+<div class="m-progress" aria-hidden="true"></div>
+</header>
+
+<main style="max-width: 960px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 88px 0 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span class="h-up" style="--d: .05s; font-size: 14px; color: #8E8E96">Side project · solo builder · 2026</span>
+<h1 class="h-up" style="--d: .15s; margin: 0; font-size: clamp(38px, 5.4vw, 58px); font-weight: 500; line-height: 1.05; letter-spacing: -0.035em">Project Desk — a PM operating system</h1>
+<p class="h-up" style="--d: .3s; margin: 0; font-size: 19px; line-height: 1.6; color: #B4B4BA; max-width: 620px">One live page that holds every project, task, client metric, decision, research question and weekly summary I own — built with Claude in a few days, without an engineering ticket.</p>
+</div>
+
+</section>
+
+<dl class="h-up" style="--d: .45s; margin: 0 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; padding: 22px 0; border-top: 1px solid #222226; border-bottom: 1px solid #222226"><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Role</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Product owner, designer and builder</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Built with</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Claude, a hosted web app with its own database</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Kept current by</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Scheduled agents via MCP connectors</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Status</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">In daily use</dd></div></dl>
+
+<div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #16161A; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: #8E8E96">TL;DR</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, rgba(255,214,90,0.22) 62%)">The tools my organisation already pays for couldn’t tell me — or my manager — what I actually did last week. Project Desk turns invisible PM work into a record I can measure, share and reuse, and it’s my answer to how a PM should work now that building a tool takes an afternoon.</span></p>
+</div>
+
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Problem</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Systems of record stop recording</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">Shared trackers fill up with tickets and pages nobody has touched in months, written by people who moved teams, for plans that changed. The real status of a project lives in people’s heads and in chat threads.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">And most PM work never becomes a ticket or a page:</p>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Research and competitive analysis</strong> — a day comparing two vendors produces a decision, not an issue.</li><li style="padding-left: 4px"><strong>Data analysis</strong> — the weekly funnel that explains why efficacy moved lives in a spreadsheet.</li><li style="padding-left: 4px"><strong>Meetings and decisions</strong> — design calls that shape months of work are recorded nowhere.</li><li style="padding-left: 4px"><strong>Unblocking</strong> — chasing an empty export or a missing credential keeps a rollout alive, and it’s invisible.</li></ul>
+<blockquote style="margin: 8px 0 0; padding: 4px 0 4px 22px; border-left: 2px solid #EDEDEF; font-size: 21px; line-height: 1.5; font-weight: 500; letter-spacing: -0.01em; color: #EDEDEF">At the end of a week I couldn’t answer, with evidence, what moved, what I decided and what was at risk.</blockquote>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Why I built it</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">A forward-deployed PM juggles a lot</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">I take a problem, pull a few people from each team, and roll AI agents out for high-impact customers. At any moment that means:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">5</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">projects at different stages, from build to vendor evaluation</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">7</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">clients with weekly metrics I review every Monday</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">3</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">teams owning different parts of each roadmap</span></div></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">I didn’t want another tool to update. I wanted one place that collects what already happens, tells me what needs attention, and writes the weekly story for me — so I built it the way I prototype everything: describe it, use it the same day, refine it from real use.</p>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">The product</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">One app, nine views</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">I open it first thing every morning and it answers three questions: what needs me today, what moved, and what I should tell people. Screenshots use sample data.</p>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-0.jpg" alt="Project Desk home with four headline numbers, my tasks, deadlines, project progress and recent activity" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Home — four numbers, my tasks, deadlines, project progress and recent activity.</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-1.jpg" alt="Project Desk inbox listing items that need attention" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Inbox — fills itself: overdue work, at-risk projects, missing client data, an efficacy drop of 5+ points, quiet projects and stale research.</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-2.jpg" alt="Project Desk roadmap with a clients-by-agents grid and deliverables" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Roadmap — every agent’s deliverables per client, with owner and status. What I bring to client and leadership reviews.</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-3.jpg" alt="Project Desk weekly summaries view" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Weekly — an AI-written summary per project: what happened, what’s next, what’s at risk. One click copies it; any “next week” line becomes a task.</figcaption></figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-4.jpg" alt="Project Desk command menu" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Everywhere — a command menu and single-key shortcuts to add a task, log a decision or jump to any project.</figcaption></figure>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">How it works</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Seven collections, three automations</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">The app is only the surface. Underneath, seven small collections hold the record — projects, updates, tasks, roadmap, clients, research and summaries — and three automations keep it current without me typing.</p>
+<div style="overflow-x: auto"><table style="width: 100%; border-collapse: collapse"><thead><tr><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">Automation</th><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">When it runs</th><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">What it does</th></tr></thead><tbody><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Metrics sync</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Weekdays, 9:45 IST</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Reads each client’s latest funnel run, computes access, efficacy and automation, keeps 26 weeks of history</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Weekly summary</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Fridays, 17:39 IST</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Reads the whole desk plus linked tickets and pages, writes the week’s summary, logs real progress as updates</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">On-demand summary</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">When I click Generate</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">The same summary for any week, written in the browser by Claude from the desk’s data</td></tr></tbody></table></div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-5.png" alt="Project Desk data flow: four channels feed one record through two scheduled agents" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Four channels feed one record through two scheduled agents, all through MCP connectors with my own access.</figcaption></figure>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">Two rules keep it honest: the agents only <strong>read</strong> the shared tools — they never create, edit or comment there — and the summary prompt forbids anything that isn’t in the data. If a project had no activity, it says so.</p>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Positioning</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">A personal system of truth, not another tracker</h2>
+<div style="overflow-x: auto"><table style="width: 100%; border-collapse: collapse"><thead><tr><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF"></th><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">Shared trackers &amp; wikis</th><th scope="col" style="text-align: left; font-weight: 500; font-size: 13px; color: #8E8E96; padding: 10px 12px 10px 0; border-bottom: 1px solid #EDEDEF">Project Desk</th></tr></thead><tbody><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Unit of work</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">A ticket or a page for someone else</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">A decision, task, finding or metric for me</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Kept current by</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Whoever remembers to</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Agents sync it; I log in seconds</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">What ages out</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Stale tickets and old pages linger</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">The inbox flags anything quiet for 14 days</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Cross-project view</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">One board or space per team</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Five projects, seven clients on one screen</td></tr><tr><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Weekly status</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Written by hand</td><td style="padding: 12px 12px 12px 0; border-bottom: 1px solid #222226; font-size: 15px">Written by an agent from the record</td></tr></tbody></table></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">It doesn’t replace the shared tools — it reads them, looks only at what changed in the last seven days, and keeps only what is alive.</p>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Impact</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Measuring the work that never gets measured</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">Engineering output has commits and closed tickets; PM output mostly has nothing. Once research, decisions, analysis and unblocking are recorded, they can be counted — tasks closed, decisions made, research closed with findings, roadmap items moved and client metrics changed, per project, every week.</p>
+<blockquote style="margin: 8px 0 0; padding: 4px 0 4px 22px; border-left: 2px solid #EDEDEF; font-size: 21px; line-height: 1.5; font-weight: 500; letter-spacing: -0.01em; color: #EDEDEF">It turns “I was busy” into evidence I can bring to a review — and it’s the raw material for case studies like this one.</blockquote>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Roadmap</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">From a record I read to an assistant I talk to</h2>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #222226; border-radius: 14px; padding: 12px"><img src="assets/pd-6.png" alt="Project Desk roadmap: shipped today, then three gated phases" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #8E8E96">Shipped today; three gated phases turn the desk into an assistant.</figcaption></figure>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Next — Microsoft 365 as a source:</strong> decisions and blockers from project chats, client threads and shared spreadsheets, read-only and marked as suggestions when unsure.</li><li style="padding-left: 4px"><strong>Then — Voice assistant with retrieval:</strong> ask “what’s blocking this project?”, speak an update on the drive home, and broadcast it to the right channels after one confirmation — every answer citing its source.</li><li style="padding-left: 4px"><strong>Later — Idea whiteboard with a PM agent:</strong> sketch an idea with teammates, let an agent draft the PRD and ask about the gaps, and turn approved ideas into projects.</li></ul>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Point of view</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">What every PM should do today</h2>
+<ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Own your record</strong> — one place for projects, decisions, findings and numbers, trusted more than memory.</li><li style="padding-left: 4px"><strong>Let agents do the upkeep</strong> — anything you copy between systems every week is a scheduled agent waiting to be written.</li><li style="padding-left: 4px"><strong>Read the company’s tools, don’t live in them</strong> — pull what changed; ignore the archive.</li><li style="padding-left: 4px"><strong>Make invisible work visible</strong> — log decisions, research and unblocking as you do them.</li><li style="padding-left: 4px"><strong>Ship the tool like a product</strong> — use it the day you build it and add features only when real use asks.</li></ol>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Learning</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Lessons so far</h2>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Start from the data, not the screens</strong> — the polish came after real use showed what I looked at.</li><li style="padding-left: 4px"><strong>Connect before you type</strong> — syncing client metrics removed the most tedious weekly step on day one.</li><li style="padding-left: 4px"><strong>Keep agents read-only on shared systems</strong> — it’s what makes pointing them at shared tools safe.</li><li style="padding-left: 4px"><strong>Write prompts that forbid invention</strong> — “no logged activity” beats a confident guess.</li><li style="padding-left: 4px"><strong>Sample data in public, real data in private</strong> — the desk is private by default.</li></ul>
+</div>
+</section>
+
+<a class="m-next" href="foodlit-dark.html" style="text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 40px 0 88px; border-top: 1px solid #EDEDEF">
+<span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #8E8E96">Next case study</span><span class="m-title" style="font-size: clamp(24px, 3.4vw, 34px); font-weight: 500; letter-spacing: -0.02em">FoodLit — Cook More, Order Less</span></span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</main>
+
+<footer style="border-top: 1px solid #222226">
+<div style="max-width: 960px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: #6E6E76">
+<span>© 2026 Dhairya Dhaka</span>
+<a class="m-link" href="mailto:dhairyadhaka11@gmail.com">dhairyadhaka11@gmail.com</a>
+</div>
+</footer>
+</div>
+</body>
+</html>

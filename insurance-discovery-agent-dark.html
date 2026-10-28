@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insurance Discovery Agent — Dhairya Dhaka</title>
+<meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0E0E10}
+html{scroll-behavior:smooth}
+a{color:inherit}
+.m-link{text-decoration:none;color:#8E8E96;transition:color .15s ease}
+.m-link:hover{color:#EDEDEF}
+.m-btn{transition:transform .2s ease}
+.m-btn:hover{transform:translateY(-1px)}
+.m-btn svg,.m-next svg{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.m-btn:hover svg{transform:translateX(-3px)}
+.m-next:hover svg{transform:translateX(4px)}
+.m-next .m-title{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.m-next:hover .m-title{transform:translateX(6px)}
+.h-up{animation:hUp .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--d,0s)}
+@keyframes hUp{from{opacity:0;translate:0 18px}}
+.ph-in{animation:phIn 1.1s cubic-bezier(.2,.8,.2,1) backwards .3s}
+@keyframes phIn{from{clip-path:inset(100% 0 0 0 round 18px);scale:1.06}to{clip-path:inset(0 0 0 0 round 18px);scale:1}}
+.m-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#EDEDEF;transform:scaleX(0);transform-origin:0 50%}
+.m-sec{position:relative}
+.m-sec::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:160px;background:#EDEDEF;transform:scaleX(0);transform-origin:left}
+@supports (animation-timeline: scroll()){
+.m-progress{animation:mProg linear both;animation-timeline:scroll(root)}
+@keyframes mProg{to{transform:scaleX(1)}}
+}
+@supports (animation-timeline: view()){
+.m-in{animation:mIn linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+@keyframes mIn{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+.m-sec::before{animation:mRule linear both;animation-timeline:view();animation-range:entry 10% cover 30%}
+@keyframes mRule{to{transform:scaleX(1)}}
+.m-st{animation:mIn linear both;animation-timeline:view();animation-range:entry calc(var(--i,0) * 5%) cover calc(18% + var(--i,0) * 5%)}
+}
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Geist', system-ui, sans-serif; color: #EDEDEF; background: #0E0E10; min-height: 100vh">
+
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(14,14,16,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid #222226">
+<nav style="max-width: 960px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<a class="m-btn" href="dark.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>All work</a>
+<a href="dark.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px"><span aria-hidden="true" style="width: 14px; height: 14px; background: #FFE58A; border: 1px solid #EDEDEF; rotate: -6deg"></span>Dhairya Dhaka</a>
+</nav>
+<div class="m-progress" aria-hidden="true"></div>
+</header>
+
+<main style="max-width: 960px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 88px 0 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span class="h-up" style="--d: .05s; font-size: 14px; color: #8E8E96">Owner · In build · Infinx Healthcare</span>
+<h1 class="h-up" style="--d: .15s; margin: 0; font-size: clamp(38px, 5.4vw, 58px); font-weight: 500; line-height: 1.05; letter-spacing: -0.035em">Insurance Discovery Agent</h1>
+<p class="h-up" style="--d: .3s; margin: 0; font-size: 19px; line-height: 1.6; color: #B4B4BA; max-width: 620px">An agent that finds billable insurance coverage for patients listed as self-pay or unknown coverage — callable by other agents, products and customers.</p>
+</div>
+
+</section>
+
+<dl class="h-up" style="--d: .45s; margin: 0 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; padding: 22px 0; border-top: 1px solid #222226; border-bottom: 1px solid #222226"><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Role</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Product owner</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Users</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Agents, internal products, customers</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Sources</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">Two coverage-discovery providers</dd></div><div><dt style="font-size: 13px; color: #8E8E96; margin-bottom: 4px">Status</dt><dd style="margin: 0; font-size: 15px; line-height: 1.5">In build</dd></div></dl>
+
+<div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #16161A; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: #8E8E96">TL;DR</span>
+<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, rgba(255,214,90,0.22) 62%)">Rather than another integration, I specified a reusable agent: it orchestrates two discovery data providers, de-duplicates and scores what it finds, learns from feedback, and is MCP-enabled so any agent can call it.</span></p>
+</div>
+
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Problem</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Unknown coverage stalls claims</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">When a patient’s active coverage isn’t known, a claim can’t be billed correctly. Teams search by hand or write the balance off, and the same lookup is repeated across products.</p>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Approach</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Product requirements I set</h2>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.65; color: #CACACF"><li style="padding-left: 4px"><strong>Callable by anyone</strong> — other agents such as Claim Status and Eligibility, internal products, and customers directly.</li><li style="padding-left: 4px"><strong>More than orchestration</strong> — checks for duplicates before calling providers and keeps a feedback loop on results.</li><li style="padding-left: 4px"><strong>Confidence-aware</strong> — uses each provider’s per-patient confidence score to decide what to trust.</li><li style="padding-left: 4px"><strong>MCP-enabled</strong> — exposed the same way as every other skill on the platform.</li></ul>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Results</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Success measures</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]%</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">coverage found rate</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">duplicate lookups avoided</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #EDEDEF"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #8E8E96">accounts moved from self-pay to billable</span></div></div>
+</div>
+</section>
+<section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #222226; display: flex; flex-wrap: wrap; gap: 20px 56px">
+<span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #8E8E96; padding-top: 6px">Next</span>
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">What’s next</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #CACACF">Finish the proof of concept, validate match quality against real accounts, and open the agent to the first internal callers.</p>
+</div>
+</section>
+
+<a class="m-next" href="voice-ai-agent-dark.html" style="text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 40px 0 88px; border-top: 1px solid #EDEDEF">
+<span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #8E8E96">Next case study</span><span class="m-title" style="font-size: clamp(24px, 3.4vw, 34px); font-weight: 500; letter-spacing: -0.02em">Voice AI Agent</span></span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</main>
+
+<footer style="border-top: 1px solid #222226">
+<div style="max-width: 960px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; color: #6E6E76">
+<span>© 2026 Dhairya Dhaka</span>
+<a class="m-link" href="mailto:dhairyadhaka11@gmail.com">dhairyadhaka11@gmail.com</a>
+</div>
+</footer>
+</div>
+</body>
+</html>
