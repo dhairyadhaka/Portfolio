@@ -14,6 +14,7 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
 | `dark.html` | Homepage, dark theme |
 | `<case-study>.html` / `<case-study>-dark.html` | One page per project, light and dark: `claim-status-agent`, `insurance-discovery-agent`, `voice-ai-agent`, `agent-simulation-lab`, `project-desk`, `foodlit` |
 | `assets/` | Photo, screenshots, and the React library files used by the homepage |
+| `intro/` | Homepage intro animation: `intro.js` (player), `build.js` (the "Discover, Build, Ship" film and its music score), `sound.js` (music synth) |
 | `CNAME` | Custom domain (`dhairyadhaka.in`). Never delete it. |
 | `DhairyaDhaka1_Resume.pdf` | Resume linked from the site |
 
@@ -26,6 +27,10 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
     - the note form
     - the auto theme
 - **Auto theme:** the homepage switches to `dark.html` between 7 pm and 7 am on the visitor's clock. A manual choice made with the sun/moon button is remembered for the visit (sessionStorage key `dd-theme-choice`).
+- **Intro:** both homepages load `intro/intro.js` in the `<head>` (`data-design="build"`). The ~11 s "Discover, Build, Ship" film plays over the homepage, then the letters of the name become windows onto the site and zoom in until the site fills the screen.
+  - Plays automatically once per visit (sessionStorage key `dd-intro-seen`); skipped for visitors who prefer reduced motion. "Skip intro" or Esc jumps to the zoom.
+  - Browsers block sound until a click, so most visitors see it silently with a "Sound on" button; music plays straight away only where the browser allows it.
+  - To replay it while previewing, open `index.html?intro`.
 - **Note form:** posts to Formspree (`https://formspree.io/f/xppqdjok`). It asks for a note and a LinkedIn profile link.
 
 ## Rules (important)
