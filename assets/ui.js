@@ -137,12 +137,110 @@
     }, { passive: true });
   }
 
+  /* ---------- dot portrait: the hero photo redrawn as dots that scatter from the pointer ---------- */
+  function dotPortraits(root) {
+    [].slice.call(root.querySelectorAll('canvas.m-dots:not([data-dots])')).forEach(function (cv) {
+      cv.setAttribute('data-dots', '');
+      var img = cv.parentNode.querySelector('img');
+      if (!img) return;
+      if (img.complete && img.naturalWidth) dotPortrait(cv, img); else img.addEventListener('load', function () { dotPortrait(cv, img); });
+    });
+  }
+
+  function dotPortrait(cv, img) {
+    var W = cv.clientWidth || 200, H = cv.clientHeight || 240, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var GAP = 4, MAXR = GAP * 0.56, INK = '#F2EFE8';
+    var still = false;
+    try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    var g = cv.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // read the photo's brightness, cropped the same way the <img> is (object-fit: cover, 50% 28%)
+    var src = document.createElement('canvas');
+    src.width = W; src.height = H;
+    var sg = src.getContext('2d');
+    var k = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+    var dw = img.naturalWidth * k, dh = img.naturalHeight * k;
+    var pos = (getComputedStyle(img).objectPosition || '50% 28%').split(' ').map(function (v) { return parseFloat(v) / 100; });
+    sg.drawImage(img, (W - dw) * (pos[0] || 0.5), (H - dh) * (pos[1] || 0.28), dw, dh);
+    var px;
+    try { px = sg.getImageData(0, 0, W, H).data; } catch (e) { return; }
+
+    // one dot per grid point, alternate rows offset; brighter areas get bigger dots
+    var dots = [];
+    for (var row = 0, y = GAP / 2; y < H; y += GAP * 0.866, row++) {
+      for (var x = (row % 2 ? GAP : GAP / 2); x < W; x += GAP) {
+        var i = (Math.round(y) * W + Math.round(x)) * 4;
+        var lum = (0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2]) / 255;
+        lum = Math.min(1, Math.max(0, (lum - 0.16) / 0.74)); // a little extra contrast so the face stands out
+        var r = MAXR * Math.pow(lum, 1.1);
+        if (r < 0.3) continue;
+        dots.push({ hx: x, hy: y, x: x, y: y, vx: 0, vy: 0, r: r });
+      }
+    }
+
+    function draw() {
+      g.clearRect(0, 0, W, H);
+      g.fillStyle = INK;
+      g.beginPath();
+      for (var j = 0; j < dots.length; j++) { var d = dots[j]; g.moveTo(d.x + d.r, d.y); g.arc(d.x, d.y, d.r, 0, 6.2832); }
+      g.fill();
+    }
+    draw();
+    cv.classList.add('is-ready');
+    if (still) return;
+
+    var REACH = 34, mx = -1e4, my = -1e4, running = false, visible = true;
+    function local(e) {
+      var b = cv.getBoundingClientRect();
+      return [(e.clientX - b.left) * (W / b.width), (e.clientY - b.top) * (H / b.height)];
+    }
+    function step() {
+      var energy = 0;
+      for (var j = 0; j < dots.length; j++) {
+        var d = dots[j], dx = d.x - mx, dy = d.y - my, dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < REACH && dist > 0.01) {
+          var f = (1 - dist / REACH); f = f * f * 2.4;
+          d.vx += dx / dist * f; d.vy += dy / dist * f;
+        }
+        d.vx += (d.hx - d.x) * 0.07; d.vy += (d.hy - d.y) * 0.07;
+        d.vx *= 0.82; d.vy *= 0.82;
+        d.x += d.vx; d.y += d.vy;
+        energy += Math.abs(d.vx) + Math.abs(d.vy) + Math.abs(d.hx - d.x) + Math.abs(d.hy - d.y);
+      }
+      // sleep once everything has settled and the pointer has left, with every dot exactly home
+      var settled = energy < dots.length * 0.004 && mx < -1e3;
+      if (settled) dots.forEach(function (d) { d.x = d.hx; d.y = d.hy; d.vx = d.vy = 0; });
+      draw();
+      if (visible && !settled) requestAnimationFrame(step);
+      else running = false;
+    }
+    function wake() { if (!running && visible) { running = true; requestAnimationFrame(step); } }
+
+    cv.addEventListener('pointermove', function (e) { var p = local(e); mx = p[0]; my = p[1]; wake(); });
+    cv.addEventListener('pointerleave', function () { mx = my = -1e4; wake(); });
+    // press: a shockwave pushes every dot outward from the press point
+    cv.addEventListener('pointerdown', function (e) {
+      var p = local(e);
+      dots.forEach(function (d) {
+        var dx = d.x - p[0], dy = d.y - p[1], dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var f = 9 * Math.exp(-dist / 70);
+        d.vx += dx / dist * f; d.vy += dy / dist * f;
+      });
+      if (e.pointerType !== 'mouse') mx = my = -1e4;
+      wake();
+    });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) wake(); }).observe(cv);
+  }
+
   function init() {
     rollStatic(document);
     gallery(document);
     watch(document);
-    // the homepage draws its content after load, so pick up rolling numbers as they appear
-    if ('MutationObserver' in window) new MutationObserver(function () { watch(document); }).observe(document.body, { childList: true, subtree: true });
+    dotPortraits(document);
+    // the homepage draws its content after load, so pick up rolling numbers and the portrait as they appear
+    if ('MutationObserver' in window) new MutationObserver(function () { watch(document); dotPortraits(document); }).observe(document.body, { childList: true, subtree: true });
     magnify();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

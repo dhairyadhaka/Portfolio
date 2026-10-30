@@ -38,6 +38,7 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
   - *Screenshot accordion:* add `data-ui-gal` to a group of `<figure>`s; on wide screens the hovered or tapped one opens. Tune with `--gal-h` (height), `--gal-open` (how wide the open one is), `--gal-cap` (caption height), `--gal-fit: contain` (show the whole open screenshot). Phones keep the normal stacked layout. Used on FoodLit (3 groups) and Project Desk.
   - *Bar chart:* FoodLit's meals-per-week chart is live HTML (`.ui-chart`), built from the same numbers as `assets/fl-10.png` (4, 5, 5, 6, 9, 8, 7, 11, 6).
   - *Toolkit magnify:* logos near the mouse grow, like a dock (mouse only, not touch).
+  - *Dot portrait:* the hero photo is redrawn as cream dots on a `<canvas class="m-dots">` laid over `assets/dhairya.jpg` (bigger dots = brighter areas). Dots scatter from the pointer and spring back; a press sends a shockwave. The real photo stays underneath, so it shows if the script doesn't run; reduced-motion visitors get still dots. Dot spacing, size and colour are at the top of `dotPortrait()` in `ui.js`.
   - *Approach player* (homepage, in `Component`): "Play the loop" walks through the four steps; clicking a step highlights just that one.
 - **Note form:** posts to Formspree (`https://formspree.io/f/xppqdjok`). It asks for a note and a LinkedIn profile link.
 
