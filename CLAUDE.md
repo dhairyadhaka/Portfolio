@@ -14,7 +14,7 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
 | `dark.html` | Homepage, dark theme |
 | `<case-study>.html` / `<case-study>-dark.html` | One page per project, light and dark: `claim-status-agent`, `insurance-discovery-agent`, `voice-ai-agent`, `agent-simulation-lab`, `project-desk`, `foodlit` |
 | `assets/` | Photo, screenshots, and the React library files used by the homepage |
-| `assets/tools/` | Single-colour tool logos for the homepage "Toolkit" section (from Simple Icons; Lovable's heart traced from its own logo). The section's tile list lives in `TEMPLATE` in both homepages, `id="tools"`. |
+| `assets/tools/` | Brand-colour tool logos for the homepage "Toolkit" section (Devicon, Simple Icons, and Lovable's own logo; Miro's tile rebuilt from its brand colours). GitHub and Cursor are black-and-white brands, so they follow the theme's ink colour. The tile list lives in `TEMPLATE` in both homepages, `id="tools"`. |
 | `intro/` | Homepage intro animation: `intro.js` (player), `build.js` (the "Discover, Build, Ship" film and its music score), `sound.js` (music synth) |
 | `CNAME` | Custom domain (`dhairyadhaka.in`). Never delete it. |
 | `DhairyaDhaka1_Resume.pdf` | Resume linked from the site |
