@@ -7,7 +7,9 @@
 <meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ui.css">
 <style>
+:root{--ui-ink:#18181B;--ui-muted:#6B6B70;--ui-line:#EFEFEC;--ui-bar:#D9D9D4;--ui-peak:#FFE58A;--ui-tip-bg:#18181B;--ui-tip-ink:#FFFFFF}
 body{margin:0;background:#FFFFFF}
 html{scroll-behavior:smooth}
 a{color:inherit}
@@ -69,7 +71,7 @@ html{scroll-behavior:auto}
 
 <div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #FAFAF8; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: #6B6B70">TL;DR</span>
-<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">The tools my organisation already pays for couldn’t tell me — or my manager — what I actually did last week. Project Desk turns invisible PM work into a record I can measure, share and reuse, and it’s my answer to how a PM should work now that building a tool takes an afternoon.</span></p>
+<p data-ui-roll style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">The tools my organisation already pays for couldn’t tell me — or my manager — what I actually did last week. Project Desk turns invisible PM work into a record I can measure, share and reuse, and it’s my answer to how a PM should work now that building a tool takes an afternoon.</span></p>
 </div>
 
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -87,7 +89,7 @@ html{scroll-behavior:auto}
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">A forward-deployed PM juggles a lot</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #33333A">I take a problem, pull a few people from each team, and roll AI agents out for high-impact customers. At any moment that means:</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">5</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">projects at different stages, from build to vendor evaluation</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">7</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">clients with weekly metrics I review every Monday</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">3</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">teams owning different parts of each roadmap</span></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">5</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">projects at different stages, from build to vendor evaluation</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">7</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">clients with weekly metrics I review every Monday</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">3</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">teams owning different parts of each roadmap</span></div></div>
 <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #33333A">I didn’t want another tool to update. I wanted one place that collects what already happens, tells me what needs attention, and writes the weekly story for me — so I built it the way I prototype everything: describe it, use it the same day, refine it from real use.</p>
 </div>
 </section>
@@ -96,11 +98,13 @@ html{scroll-behavior:auto}
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">One app, nine views</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #33333A">I open it first thing every morning and it answers three questions: what needs me today, what moved, and what I should tell people. Screenshots use sample data.</p>
+<div data-ui-gal style="display: flex; flex-direction: column; gap: 22px; --gal-h: 400px; --gal-open: 7; --gal-cap: 64px; --gal-fit: contain; --gal-pos: center">
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #EFEFEC; border-radius: 14px; padding: 12px"><img src="assets/pd-0.jpg" alt="Project Desk home with four headline numbers, my tasks, deadlines, project progress and recent activity" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #6B6B70">Home — four numbers, my tasks, deadlines, project progress and recent activity.</figcaption></figure>
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #EFEFEC; border-radius: 14px; padding: 12px"><img src="assets/pd-1.jpg" alt="Project Desk inbox listing items that need attention" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #6B6B70">Inbox — fills itself: overdue work, at-risk projects, missing client data, an efficacy drop of 5+ points, quiet projects and stale research.</figcaption></figure>
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #EFEFEC; border-radius: 14px; padding: 12px"><img src="assets/pd-2.jpg" alt="Project Desk roadmap with a clients-by-agents grid and deliverables" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #6B6B70">Roadmap — every agent’s deliverables per client, with owner and status. What I bring to client and leadership reviews.</figcaption></figure>
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #EFEFEC; border-radius: 14px; padding: 12px"><img src="assets/pd-3.jpg" alt="Project Desk weekly summaries view" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #6B6B70">Weekly — an AI-written summary per project: what happened, what’s next, what’s at risk. One click copies it; any “next week” line becomes a task.</figcaption></figure>
 <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="background: #FFFFFF; border: 1px solid #EFEFEC; border-radius: 14px; padding: 12px"><img src="assets/pd-4.jpg" alt="Project Desk command menu" loading="lazy" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #6B6B70">Everywhere — a command menu and single-key shortcuts to add a task, log a decision or jump to any project.</figcaption></figure>
+</div>
 </div>
 </section>
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -165,5 +169,6 @@ html{scroll-behavior:auto}
 </div>
 </footer>
 </div>
+<script src="assets/ui.js"></script>
 </body>
 </html>

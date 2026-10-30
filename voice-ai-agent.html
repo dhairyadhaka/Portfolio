@@ -7,7 +7,9 @@
 <meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ui.css">
 <style>
+:root{--ui-ink:#18181B;--ui-muted:#6B6B70;--ui-line:#EFEFEC;--ui-bar:#D9D9D4;--ui-peak:#FFE58A;--ui-tip-bg:#18181B;--ui-tip-ink:#FFFFFF}
 body{margin:0;background:#FFFFFF}
 html{scroll-behavior:smooth}
 a{color:inherit}
@@ -69,7 +71,7 @@ html{scroll-behavior:auto}
 
 <div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #FAFAF8; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: #6B6B70">TL;DR</span>
-<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">I ran two proof-of-concept batches with an AI voice vendor, set honest go/no-go criteria, and designed the agent as pure orchestration: it picks the right skill, translates data in and out, and interprets the result — without owning business logic.</span></p>
+<p data-ui-roll style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">I ran two proof-of-concept batches with an AI voice vendor, set honest go/no-go criteria, and designed the agent as pure orchestration: it picks the right skill, translates data in and out, and interprets the result — without owning business logic.</span></p>
 </div>
 
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -90,7 +92,7 @@ html{scroll-behavior:auto}
 <span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #6B6B70; padding-top: 6px">Results</span>
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">What the pilots showed</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">2</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">proof-of-concept batches across 15+ payers</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">97%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">output quality in the second batch</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">≥70%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">extraction target set as the go criterion</span></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">2</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">proof-of-concept batches across 15+ payers</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">97%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">output quality in the second batch</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">≥70%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">extraction target set as the go criterion</span></div></div>
 <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #33333A">Extraction landed around 51% and 43% across the two batches — the dip came from a harder payer mix, not a regression. I framed 50–60% auto-resolution as the honest ceiling and positioned voice as a fallback, not a replacement.</p>
 </div>
 </section>
@@ -115,5 +117,6 @@ html{scroll-behavior:auto}
 </div>
 </footer>
 </div>
+<script src="assets/ui.js"></script>
 </body>
 </html>

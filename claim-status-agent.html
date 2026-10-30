@@ -7,7 +7,9 @@
 <meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ui.css">
 <style>
+:root{--ui-ink:#18181B;--ui-muted:#6B6B70;--ui-line:#EFEFEC;--ui-bar:#D9D9D4;--ui-peak:#FFE58A;--ui-tip-bg:#18181B;--ui-tip-ink:#FFFFFF}
 body{margin:0;background:#FFFFFF}
 html{scroll-behavior:smooth}
 a{color:inherit}
@@ -69,7 +71,7 @@ html{scroll-behavior:auto}
 
 <div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #FAFAF8; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: #6B6B70">TL;DR</span>
-<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">I moved claim status from payer-by-payer logic to one universal way of reading payer responses, defined what “done” really means for a status check, and used failure analysis to fix the real bottlenecks — most of which sat upstream of the bot. Since April 2024 it has automated 2.1M+ status checks, saving about 140,000 hours of manual work.</span></p>
+<p data-ui-roll style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">I moved claim status from payer-by-payer logic to one universal way of reading payer responses, defined what “done” really means for a status check, and used failure analysis to fix the real bottlenecks — most of which sat upstream of the bot. Since April 2024 it has automated 2.1M+ status checks, saving about 140,000 hours of manual work.</span></p>
 </div>
 
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -106,7 +108,7 @@ html{scroll-behavior:auto}
 <span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #6B6B70; padding-top: 6px">Results</span>
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Impact so far</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">2.1M+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">claim status checks automated since April 2024</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">140K+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">hours of manual follow-up saved — about 70 person-years of work</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">~4,000</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">status checks per working day in 2026</span></div><div class="m-st" style="--i: 3; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">67% → 80%+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">efficacy recovered for one enterprise client in 5 months</span></div><div class="m-st" style="--i: 4; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">~38% → ~3%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">projected drop in “needs review” cases by fixing one data field</span></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">2.1M+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">claim status checks automated since April 2024</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">140K+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">hours of manual follow-up saved — about 70 person-years of work</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">~4,000</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">status checks per working day in 2026</span></div><div class="m-st" style="--i: 3; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">67% → 80%+</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">efficacy recovered for one enterprise client in 5 months</span></div><div class="m-st" style="--i: 4; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">~38% → ~3%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">projected drop in “needs review” cases by fixing one data field</span></div></div>
 <p style="margin: 0; font-size: 17px; line-height: 1.75; color: #33333A"><em>Volumes are rounded. Hours saved assume about 4 minutes for a person to check one claim by hand. Numbers come from internal analyses; client names are kept private.</em></p>
 </div>
 </section>
@@ -132,5 +134,6 @@ html{scroll-behavior:auto}
 </div>
 </footer>
 </div>
+<script src="assets/ui.js"></script>
 </body>
 </html>

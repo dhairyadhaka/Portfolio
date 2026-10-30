@@ -15,6 +15,7 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
 | `<case-study>.html` / `<case-study>-dark.html` | One page per project, light and dark: `claim-status-agent`, `insurance-discovery-agent`, `voice-ai-agent`, `agent-simulation-lab`, `project-desk`, `foodlit` |
 | `assets/` | Photo, screenshots, and the React library files used by the homepage |
 | `assets/tools/` | Brand-colour tool logos for the homepage "Toolkit" section (Devicon, Simple Icons, AWS's official icon pack for Amazon Quick Suite, and the makers' own files for Lovable and Copilot; Miro's tile rebuilt from its brand colours). GitHub, Cursor and ChatGPT are black-and-white brands, so they follow the theme's ink colour. The tile list lives in `TEMPLATE` in both homepages, `id="tools"`. |
+| `assets/ui.css`, `assets/ui.js` | Shared interactions used by every page (each page sets its colour tokens, `--ui-*`, in its `<style>`) — see "Interactions" below |
 | `intro/` | Homepage intro animation: `intro.js` (player), `build.js` (the "Discover, Build, Ship" film and its music score), `sound.js` (music synth) |
 | `CNAME` | Custom domain (`dhairyadhaka.in`). Never delete it. |
 | `DhairyaDhaka1_Resume.pdf` | Resume linked from the site |
@@ -32,6 +33,12 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
   - Plays automatically once per visit (sessionStorage key `dd-intro-seen`); skipped for visitors who prefer reduced motion. "Skip intro" or Esc jumps to the zoom.
   - Browsers block sound until a click, so most visitors see it silently with a "Sound on" button; music plays straight away only where the browser allows it.
   - To replay it while previewing, open `index.html?intro`.
+- **Interactions** (`assets/ui.css` + `assets/ui.js`):
+  - *Rolling numbers:* numbers count up digit by digit when they scroll into view. Homepage project outcomes roll automatically. In case studies, add `data-ui-roll` to an element to roll its big numbers (₹, M/K, commas or 10+; years stay still), or `data-ui-roll="all"` to roll every number (used on the big stat rows).
+  - *Screenshot accordion:* add `data-ui-gal` to a group of `<figure>`s; on wide screens the hovered or tapped one opens. Tune with `--gal-h` (height), `--gal-open` (how wide the open one is), `--gal-cap` (caption height), `--gal-fit: contain` (show the whole open screenshot). Phones keep the normal stacked layout. Used on FoodLit (3 groups) and Project Desk.
+  - *Bar chart:* FoodLit's meals-per-week chart is live HTML (`.ui-chart`), built from the same numbers as `assets/fl-10.png` (4, 5, 5, 6, 9, 8, 7, 11, 6).
+  - *Toolkit magnify:* logos near the mouse grow, like a dock (mouse only, not touch).
+  - *Approach player* (homepage, in `Component`): "Play the loop" walks through the four steps; clicking a step highlights just that one.
 - **Note form:** posts to Formspree (`https://formspree.io/f/xppqdjok`). It asks for a note and a LinkedIn profile link.
 
 ## Rules (important)

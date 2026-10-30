@@ -7,7 +7,9 @@
 <meta name="description" content="Dhairya Dhaka — Product Manager building AI agents for healthcare operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ui.css">
 <style>
+:root{--ui-ink:#18181B;--ui-muted:#6B6B70;--ui-line:#EFEFEC;--ui-bar:#D9D9D4;--ui-peak:#FFE58A;--ui-tip-bg:#18181B;--ui-tip-ink:#FFFFFF}
 body{margin:0;background:#FFFFFF}
 html{scroll-behavior:smooth}
 a{color:inherit}
@@ -69,7 +71,7 @@ html{scroll-behavior:auto}
 
 <div class="h-up" style="--d: .55s; margin-bottom: 64px; background: #FAFAF8; border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: #6B6B70">TL;DR</span>
-<p style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">Rather than another integration, I specified a reusable agent: it orchestrates two discovery data providers, de-duplicates and scores what it finds, learns from feedback, and is MCP-enabled so any agent can call it.</span></p>
+<p data-ui-roll style="margin: 0; font-size: 18px; line-height: 1.65"><span style="background: linear-gradient(transparent 62%, #FFF1B8 62%)">Rather than another integration, I specified a reusable agent: it orchestrates two discovery data providers, de-duplicates and scores what it finds, learns from feedback, and is MCP-enabled so any agent can call it.</span></p>
 </div>
 
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -90,7 +92,7 @@ html{scroll-behavior:auto}
 <span style="flex: 0 0 160px; font-size: 14px; font-weight: 500; color: #6B6B70; padding-top: 6px">Results</span>
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
 <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -0.02em">Success measures</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">coverage found rate</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">duplicate lookups avoided</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">accounts moved from self-pay to billable</span></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px"><div class="m-st" style="--i: 0; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]%</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">coverage found rate</span></div><div class="m-st" style="--i: 1; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">duplicate lookups avoided</span></div><div class="m-st" style="--i: 2; display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid #18181B"><span data-ui-roll="all" style="font-size: clamp(26px, 3.2vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1">[X]</span><span style="font-size: 14px; line-height: 1.5; color: #6B6B70">accounts moved from self-pay to billable</span></div></div>
 </div>
 </section>
 <section class="m-in m-sec" style="padding: 64px 0; border-top: 1px solid #EFEFEC; display: flex; flex-wrap: wrap; gap: 20px 56px">
@@ -114,5 +116,6 @@ html{scroll-behavior:auto}
 </div>
 </footer>
 </div>
+<script src="assets/ui.js"></script>
 </body>
 </html>
