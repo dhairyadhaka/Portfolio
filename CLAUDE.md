@@ -15,7 +15,7 @@ Static website served by GitHub Pages from the `main` branch of this repo. There
 | `<case-study>.html` / `<case-study>-dark.html` | One page per project, light and dark: `claim-status-agent`, `insurance-discovery-agent`, `voice-ai-agent`, `agent-simulation-lab`, `project-desk`, `foodlit` |
 | `assets/` | Photo, screenshots, and the React library files used by the homepage |
 | `assets/tools/` | Brand-colour tool logos for the homepage "Toolkit" section (Devicon, Simple Icons, AWS's official icon pack for Amazon Quick Suite, and the makers' own files for Lovable and Copilot; Miro's tile rebuilt from its brand colours). GitHub, Cursor and ChatGPT are black-and-white brands, so they follow the theme's ink colour. The tile list lives in `TEMPLATE` in both homepages, `id="tools"`. |
-| `assets/ui.css`, `assets/ui.js` | Shared interactions used by every page (each page sets its colour tokens, `--ui-*`, in its `<style>`) — see "Interactions" below |
+| `assets/ui.css`, `assets/ui.js` | Shared interactions used by every page (each page sets its colour tokens, `--ui-*`, in its `<style>`) — see "Interactions" below. Pages load them as `ui.css?v=N` / `ui.js?v=N`: **after changing either file, bump N on all 14 pages** so visitors don't get a stale cached copy. |
 | `intro/` | Homepage intro animation: `intro.js` (player), `build.js` (the "Discover, Build, Ship" film and its music score), `sound.js` (music synth) |
 | `CNAME` | Custom domain (`dhairyadhaka.in`). Never delete it. |
 | `DhairyaDhaka1_Resume.pdf` | Resume linked from the site |
