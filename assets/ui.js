@@ -137,100 +137,76 @@
     }, { passive: true });
   }
 
-  /* ---------- dot portrait: the hero photo redrawn as dots that scatter from the pointer ---------- */
-  function dotPortraits(root) {
-    [].slice.call(root.querySelectorAll('canvas.m-dots:not([data-dots])')).forEach(function (cv) {
-      cv.setAttribute('data-dots', '');
-      var img = cv.parentNode.querySelector('img');
-      if (!img) return;
-      if (img.complete && img.naturalWidth) dotPortrait(cv, img); else img.addEventListener('load', function () { dotPortrait(cv, img); });
+  /* ---------- hero dot field: a faint grid of dots that leans away from the pointer ---------- */
+  function dotFields(root) {
+    [].slice.call(root.querySelectorAll('canvas.m-field:not([data-field])')).forEach(function (cv) {
+      cv.setAttribute('data-field', '');
+      dotField(cv);
     });
   }
 
-  function dotPortrait(cv, img) {
-    var W = cv.clientWidth || 200, H = cv.clientHeight || 240, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var GAP = 4, MAXR = GAP * 0.56, INK = '#F2EFE8';
-    var still = false;
+  function dotField(cv) {
+    var GAP = 24, DOT = 1.1, BASE = 0.16, REACH = 150, PUSH = 9;
+    var host = cv.parentNode, g = cv.getContext('2d');
+    var dots = [], W = 0, H = 0, dpr = 1, ink = '#18181B';
+    var mx = -1e4, my = -1e4, waves = [], running = false, visible = true, still = false;
     try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    var g = cv.getContext('2d');
-    g.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // read the photo's brightness, cropped the same way the <img> is (object-fit: cover, 50% 28%)
-    var src = document.createElement('canvas');
-    src.width = W; src.height = H;
-    var sg = src.getContext('2d');
-    var k = Math.max(W / img.naturalWidth, H / img.naturalHeight);
-    var dw = img.naturalWidth * k, dh = img.naturalHeight * k;
-    var pos = (getComputedStyle(img).objectPosition || '50% 28%').split(' ').map(function (v) { return parseFloat(v) / 100; });
-    sg.drawImage(img, (W - dw) * (pos[0] || 0.5), (H - dh) * (pos[1] || 0.28), dw, dh);
-    var px;
-    try { px = sg.getImageData(0, 0, W, H).data; } catch (e) { return; }
-
-    // one dot per grid point, alternate rows offset; brighter areas get bigger dots
-    var dots = [];
-    for (var row = 0, y = GAP / 2; y < H; y += GAP * 0.866, row++) {
-      for (var x = (row % 2 ? GAP : GAP / 2); x < W; x += GAP) {
-        var i = (Math.round(y) * W + Math.round(x)) * 4;
-        var lum = (0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2]) / 255;
-        lum = Math.min(1, Math.max(0, (lum - 0.16) / 0.74)); // a little extra contrast so the face stands out
-        var r = MAXR * Math.pow(lum, 1.1);
-        if (r < 0.3) continue;
-        dots.push({ hx: x, hy: y, x: x, y: y, vx: 0, vy: 0, r: r });
-      }
+    function build() {
+      W = cv.clientWidth; H = cv.clientHeight;
+      if (!W || !H) return;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ink = getComputedStyle(cv).color || ink;
+      dots = [];
+      var ox = (W % GAP) / 2 + GAP / 2, oy = (H % GAP) / 2 + GAP / 2;
+      for (var y = oy; y < H; y += GAP) for (var x = ox; x < W; x += GAP) dots.push({ hx: x, hy: y, x: x, y: y, a: BASE, r: DOT });
+      draw();
     }
 
     function draw() {
       g.clearRect(0, 0, W, H);
-      g.fillStyle = INK;
-      g.beginPath();
-      for (var j = 0; j < dots.length; j++) { var d = dots[j]; g.moveTo(d.x + d.r, d.y); g.arc(d.x, d.y, d.r, 0, 6.2832); }
-      g.fill();
-    }
-    draw();
-    cv.classList.add('is-ready');
-    if (still) return;
-
-    var REACH = 34, mx = -1e4, my = -1e4, running = false, visible = true;
-    function local(e) {
-      var b = cv.getBoundingClientRect();
-      return [(e.clientX - b.left) * (W / b.width), (e.clientY - b.top) * (H / b.height)];
-    }
-    function step() {
-      var energy = 0;
-      for (var j = 0; j < dots.length; j++) {
-        var d = dots[j], dx = d.x - mx, dy = d.y - my, dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < REACH && dist > 0.01) {
-          var f = (1 - dist / REACH); f = f * f * 2.4;
-          d.vx += dx / dist * f; d.vy += dy / dist * f;
-        }
-        d.vx += (d.hx - d.x) * 0.07; d.vy += (d.hy - d.y) * 0.07;
-        d.vx *= 0.82; d.vy *= 0.82;
-        d.x += d.vx; d.y += d.vy;
-        energy += Math.abs(d.vx) + Math.abs(d.vy) + Math.abs(d.hx - d.x) + Math.abs(d.hy - d.y);
+      g.fillStyle = ink;
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i];
+        g.globalAlpha = d.a;
+        g.beginPath(); g.arc(d.x, d.y, d.r, 0, 6.2832); g.fill();
       }
-      // sleep once everything has settled and the pointer has left, with every dot exactly home
-      var settled = energy < dots.length * 0.004 && mx < -1e3;
-      if (settled) dots.forEach(function (d) { d.x = d.hx; d.y = d.hy; d.vx = d.vy = 0; });
+      g.globalAlpha = 1;
+    }
+
+    function step(now) {
+      waves = waves.filter(function (w) { return now - w.t < 1100; });
+      var moving = false;
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i], dx = d.hx - mx, dy = d.hy - my, dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var k = Math.max(0, 1 - dist / REACH); k = k * k * (3 - 2 * k);
+        var tx = d.hx + dx / dist * PUSH * k, ty = d.hy + dy / dist * PUSH * k, ta = BASE + 0.34 * k;
+        // ripple: a ring that travels outward from a click or tap
+        for (var j = 0; j < waves.length; j++) {
+          var w = waves[j], wx = d.hx - w.x, wy = d.hy - w.y, wd = Math.sqrt(wx * wx + wy * wy) || 1;
+          var age = (now - w.t) / 1100, ring = age * 520, band = Math.max(0, 1 - Math.abs(wd - ring) / 34) * (1 - age);
+          tx += wx / wd * 7 * band; ty += wy / wd * 7 * band; ta += 0.3 * band;
+        }
+        d.x += (tx - d.x) * 0.16; d.y += (ty - d.y) * 0.16; d.a += (ta - d.a) * 0.16;
+        d.r = DOT * (1 + 0.9 * (d.a - BASE) / 0.34);
+        if (Math.abs(tx - d.x) + Math.abs(ty - d.y) + Math.abs(ta - d.a) * 20 > 0.02) moving = true;
+      }
       draw();
-      if (visible && !settled) requestAnimationFrame(step);
+      if (visible && (moving || waves.length || mx > -1e3)) requestAnimationFrame(step);
       else running = false;
     }
-    function wake() { if (!running && visible) { running = true; requestAnimationFrame(step); } }
+    function wake() { if (!still && !running && visible) { running = true; requestAnimationFrame(step); } }
+    function local(e) { var b = cv.getBoundingClientRect(); return [e.clientX - b.left, e.clientY - b.top]; }
 
-    cv.addEventListener('pointermove', function (e) { var p = local(e); mx = p[0]; my = p[1]; wake(); });
-    cv.addEventListener('pointerleave', function () { mx = my = -1e4; wake(); });
-    // press: a shockwave pushes every dot outward from the press point
-    cv.addEventListener('pointerdown', function (e) {
-      var p = local(e);
-      dots.forEach(function (d) {
-        var dx = d.x - p[0], dy = d.y - p[1], dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        var f = 9 * Math.exp(-dist / 70);
-        d.vx += dx / dist * f; d.vy += dy / dist * f;
-      });
-      if (e.pointerType !== 'mouse') mx = my = -1e4;
-      wake();
-    });
+    build();
+    if ('ResizeObserver' in window) new ResizeObserver(function () { build(); }).observe(cv);
+    else window.addEventListener('resize', build);
+    if (still) return;
+    host.addEventListener('pointermove', function (e) { if (e.pointerType !== 'mouse') return; var p = local(e); mx = p[0]; my = p[1]; wake(); });
+    host.addEventListener('pointerleave', function () { mx = my = -1e4; wake(); });
+    host.addEventListener('pointerdown', function (e) { var p = local(e); waves.push({ x: p[0], y: p[1], t: performance.now() }); wake(); });
     if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) wake(); }).observe(cv);
   }
 
@@ -238,9 +214,9 @@
     rollStatic(document);
     gallery(document);
     watch(document);
-    dotPortraits(document);
-    // the homepage draws its content after load, so pick up rolling numbers and the portrait as they appear
-    if ('MutationObserver' in window) new MutationObserver(function () { watch(document); dotPortraits(document); }).observe(document.body, { childList: true, subtree: true });
+    dotFields(document);
+    // the homepage draws its content after load, so pick up rolling numbers and the hero dot field as they appear
+    if ('MutationObserver' in window) new MutationObserver(function () { watch(document); dotFields(document); }).observe(document.body, { childList: true, subtree: true });
     magnify();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
